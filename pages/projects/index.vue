@@ -1,9 +1,8 @@
 <template>
-  <div>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis ad ex,
-    veniam iusto nulla modi exercitationem est reiciendis molestias deserunt
-    officia alias, sequi aspernatur aliquid architecto sed, odit asperiores
-    quam.
+  <div class="text-center text-[36px] md:pt-0 pt-[180px]">
+    <div class="p-4 font-bold bg-black shadowContainer">
+      WILL BE UPDATED SOON
+    </div>
   </div>
 </template>
 

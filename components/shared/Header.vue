@@ -1,20 +1,20 @@
 <template>
   <div class="absolute z-10 top-0 left-0 w-full bg-black p-4">
     <div class="flex items-center justify-end md:px-12">
-      <div class="md:flex md:items-center md:gap-5 hidden">
+      <div class="md:flex md:items-center md:gap-2 hidden">
         <div v-for="item in menuItems">
           <nuxt-link
             v-if="item.type === 'nuxt-link'"
             :to="item.to"
             :exact="item.to === '/'"
-            class="text-[#bbb] hover:text-[#00dc82] cursor-pointer text-[14px]"
+            class="text-[#bbb] hover:text-[#00dc82] cursor-pointer text-[14px] inline-block py-1 px-3 rounded-[5px]"
             >{{ item.title }}</nuxt-link
           >
           <a
             v-else
             :href="item.to"
             target="_blank"
-            class="text-[#bbb] hover:text-[#00dc82] cursor-pointer text-[14px]"
+            class="text-[#bbb] hover:text-[#00dc82] cursor-pointer text-[14px] inline-block py-1 px-3 rounded-[5px]"
           >
             <span v-html="item.icon"></span>
           </a>
@@ -52,18 +52,18 @@
       :open="showDrawer"
       @close="showDrawer = false"
       style="
-        background-color: black;
-        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        background-color: #0f0f0f;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
       "
       :closable="false"
     >
-      <div class="flex flex-col gap-5">
+      <div class="flex flex-col gap-2">
         <div v-for="item in menuItems">
           <nuxt-link
             v-if="item.type === 'nuxt-link'"
             :to="item.to"
             :exact="item.to === '/'"
-            class="text-[#bbb] hover:text-[#00dc82] cursor-pointer text-[14px]"
+            class="text-[#bbb] hover:text-[#00dc82] cursor-pointer text-[14px] py-2 px-3 rounded-[5px] block"
           >
             {{ item.title }}
           </nuxt-link>
@@ -71,7 +71,7 @@
             v-else
             :href="item.to"
             target="_blank"
-            class="text-[#bbb] hover:text-[#00dc82] cursor-pointer text-[14px] flex items-center"
+            class="text-[#bbb] hover:text-[#00dc82] cursor-pointer text-[14px] flex items-center py-2 px-3 rounded-[5px]"
           >
             <span v-html="item.icon"></span>
             <span class="ml-2"> {{ item.title }} </span>
@@ -181,5 +181,6 @@ const menuItems = ref([
 <style scoped lang="less">
 .router-link-active {
   color: #00dc82;
+  background-color: rgba(255, 255, 255, 0.112);
 }
 </style>
