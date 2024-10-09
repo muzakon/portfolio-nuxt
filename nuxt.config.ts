@@ -19,7 +19,15 @@ export default defineNuxtConfig({
           href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
         },
       ],
+      title: "Hasan Muzak - Personal Website",
+      meta: [
+        {
+          name: "description",
+          content: "Explore the portfolio of a skilled Fullstack Developer. Discover innovative solutions and projects showcasing expertise in modern web development."
+        }
+      ]
     },
+    
   },
   nitro: {
     output: {
