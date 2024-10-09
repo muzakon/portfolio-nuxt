@@ -175,7 +175,9 @@ onUnmounted(() => {
 });
 
 nextTick(() => {
-  window.addEventListener("resize", onResizeWindow);
+  if (window.document) {
+    window.addEventListener("resize", onResizeWindow);
+  }
 });
 
 function onResizeWindow() {
