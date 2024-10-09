@@ -1,6 +1,6 @@
 <template>
   <div class="md:pt-0 pt-[48px]">
-    <div class="bg-black/70">
+    <div class="bg-black shadowContainer">
       <h1 class="text-gray-200 text-[36px] title">Experience</h1>
       <div class="pt-8">
         <a-timeline>

@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import Header from "@/components/shared/Header.vue";
-import { useDark, useToggle } from "@vueuse/core";
-import { onMounted } from "vue";
 import { theme } from "ant-design-vue";
+import GridBackground from "@/components/shared/GridBackground.vue";
 
 const isDark = useDark({
   selector: "body",
@@ -31,9 +30,10 @@ onMounted(async () => {
     <main>
       <Header />
       <div
-        class="container mx-auto max-w-[940px] md:pt-[220px] pt-[50px] md:px-0 px-[32px] relative"
+        class="container mx-auto max-w-[940px] md:pt-[220px] pt-[50px] md:px-0 px-[32px] relative sm:pb-0 pb-[16px]"
         style="z-index: 5"
       >
+        <GridBackground />
         <Transition name="fade" mode="out-in">
           <slot />
         </Transition>

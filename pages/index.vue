@@ -1,29 +1,6 @@
 <template>
   <div class="pt-[100px]">
-    <div>
-      <div
-        class="absolute inset-0 grid justify-center -space-y-px z-[-1]"
-        :class="`auto-rows-[50px]`"
-      >
-        <div
-          class="grid grid-flow-col"
-          :class="`auto-cols-[50px]`"
-          v-for="row in numberOfRows"
-        >
-          <div
-            class="relative border border-green-900/10"
-            v-for="col in numberOfColumns"
-          >
-            <div
-              :id="`box-${row}-${col}`"
-              class="absolute inset-0 opacity-0 transition duration-1000 box"
-            ></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="">
+    <div class="shadowContainer bg-black">
       <h1
         class="text-gray-200 text-[36px] title space-grotesk uppercase font-bold"
       >
@@ -118,75 +95,56 @@
           </div>
         </a>
       </div>
+
+      <div class="pt-8">
+        <div class="grid grid-cols-12 gap-3">
+          <div
+            v-for="key in Object.keys(leetCodeStats)"
+            class="p-[16px] rounded-[8px] border-2 border-dashed md:col-span-3 sm:col-span-4 xs:col-span-6 col-span-12"
+            :class="{
+              'bg-[#951d3115] border-[#ed3a5250] hover:bg-[#951d3125]':
+                key === 'hard',
+              'bg-[#4c1d9515] border-[#7C3AED50] hover:bg-[#4c1d9525]':
+                key === 'medium',
+              'bg-[#23951d15] border-[#3aed5e50] hover:bg-[#23951d25]':
+                key === 'easy',
+            }"
+          >
+            <div
+              class="flex items-center justify-end w-full uppercase text-[10px] font-semibold"
+            >
+              <div
+                class="inline-block px-1 py-0 rounded-[5px] border"
+                :class="{
+                  'bg-[#951d3180] border-[#ed3a52] text-[#f46376]':
+                    key === 'hard',
+                  'bg-[#4c1d9580] border-[#7C3AED] text-[#aa7ff4]':
+                    key === 'medium',
+                  'bg-[#23951d80] border-[#3aed5e] text-[#57f15c]':
+                    key === 'easy',
+                }"
+              >
+                {{ key }}
+              </div>
+            </div>
+            <span class="text-[28px] space-grotesk font-bold text-white">
+              {{ leetCodeStats[key] }}+
+            </span>
+            <div class="text-[13px] mt-1 text-white">Problems solved</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, type Ref, onMounted, onUnmounted, nextTick } from "vue";
-import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
 import { Typed } from "@duskmoon/vue3-typed-js";
-
-const windowWidth = ref(0);
-const windowHeight = ref(0);
-const numberOfColumns = ref(0);
-const boxColorizeChance = 0.01;
-const numberOfRows = ref(0);
-const boxSize = ref(50);
-const boxInterval: Ref<number | null> = ref(null);
-const breakpoints = useBreakpoints(breakpointsTailwind);
-
-onMounted(async () => {
-  if (window.document) {
-    windowWidth.value = window.innerWidth;
-    windowHeight.value = window.innerHeight;
-
-    numberOfRows.value = Math.floor(windowHeight.value / boxSize.value);
-    numberOfColumns.value = Math.floor(windowWidth.value / boxSize.value);
-
-    boxInterval.value = setInterval(() => {
-      for (let i = 0; i < numberOfColumns.value; i++) {
-        for (let y = 0; y < numberOfRows.value; y++) {
-          const box = document.getElementById(`box-${y}-${i}`);
-          if (box) {
-            const random = Math.random();
-
-            if (box.classList.contains("opacity-100")) {
-              box.classList.toggle("opacity-100");
-            }
-
-            if (
-              random <= boxColorizeChance &&
-              breakpoints.greater("md").value
-            ) {
-              box.classList.toggle("opacity-100");
-            }
-          }
-        }
-      }
-    }, 3000);
-  }
+const leetCodeStats = ref({
+  easy: 130,
+  medium: 230,
+  hard: 142,
 });
-
-onUnmounted(() => {
-  if (boxInterval.value) {
-    clearInterval(boxInterval.value);
-  }
-});
-
-nextTick(() => {
-  if (import.meta.client) {
-    window.addEventListener("resize", onResizeWindow);
-  }
-});
-
-function onResizeWindow() {
-  windowWidth.value = window.innerWidth;
-  windowHeight.value = window.innerHeight;
-
-  numberOfRows.value = Math.floor(windowHeight.value / boxSize.value);
-  numberOfColumns.value = Math.floor(windowWidth.value / boxSize.value);
-}
 </script>
 
 <style scoped>
