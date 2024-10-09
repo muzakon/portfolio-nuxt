@@ -175,7 +175,7 @@ onUnmounted(() => {
 });
 
 nextTick(() => {
-  if (window.document) {
+  if (import.meta.client) {
     window.addEventListener("resize", onResizeWindow);
   }
 });
