@@ -29,11 +29,11 @@ export default defineNuxtConfig({
     },
     
   },
-  nitro: {
-    output: {
-      publicDir: path.join(__dirname, "dist"),
-    },
-  },
+  // nitro: {
+  //   output: {
+  //     publicDir: path.join(__dirname, "dist"),
+  //   },
+  // },
   tailwindcss: {
     config: {
       theme: {
@@ -57,7 +57,4 @@ export default defineNuxtConfig({
       },
     },
   },
-  routeRules: {
-    '/*': { ssr: false },
-  }
 });
