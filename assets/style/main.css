@@ -1,0 +1,198 @@
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4ade80;
+}
+
+/* ===== BASE STYLES ===== */
+body {
+  background-color: #050505;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== GLASS NAV ===== */
+.glass-nav {
+  background: rgba(5, 5, 5, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ===== GRID BACKGROUND ===== */
+.bg-grid {
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 40%,
+    transparent 70%
+  );
+}
+
+/* ===== TIMELINE ===== */
+.timeline-line {
+  background-image: linear-gradient(
+    to bottom,
+    #3f3f46 50%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: left;
+  background-size: 2px 10px;
+  background-repeat: repeat-y;
+}
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-children > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal-children.visible > *:nth-child(1) {
+  transition-delay: 0ms;
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-children.visible > *:nth-child(2) {
+  transition-delay: 80ms;
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-children.visible > *:nth-child(3) {
+  transition-delay: 160ms;
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-children.visible > *:nth-child(4) {
+  transition-delay: 240ms;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SCROLL INDICATOR ===== */
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 0.8;
+  }
+}
+.scroll-indicator {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* ===== NAV LINK ===== */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: #4ade80;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ===== PROJECT CARD ===== */
+.project-card {
+  transition: transform 0.4s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 40px -12px rgba(74, 222, 128, 0.08);
+}
+
+/* ===== TIMELINE NODE ===== */
+.timeline-node {
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+.group:hover .timeline-node {
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.25);
+}
+
+/* ===== SOCIAL LINK ===== */
+.social-link {
+  position: relative;
+  overflow: hidden;
+}
+.social-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 1px;
+  background: #4ade80;
+  transition: left 0.3s ease;
+}
+.social-link:hover::after {
+  left: 0;
+}
+
+/* ===== STICKY CTA (Mobile) ===== */
+.sticky-cta {
+  transform: translateY(100%);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+.sticky-cta.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ===== FOCUS STYLES ===== */
+*:focus-visible {
+  outline: 1px solid #4ade80;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===== SKIP LINK ===== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 8px;
+}
+
+/* ===== ANIMATED BUTTON GRADIENT ===== */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
