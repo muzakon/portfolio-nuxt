@@ -42,24 +42,27 @@ const scrolledPastHero = ref(false);
 // Scroll indicator fade
 const scrollIndicatorVisible = ref(true);
 
-onMounted(() => {
-  if (typeof window === "undefined") return;
+// Only run on client side
+if (import.meta.client) {
+  onMounted(() => {
+    if (typeof window === "undefined") return;
 
-  const handleScroll = () => {
-    const hero = document.getElementById("home");
-    if (hero) {
-      const heroBottom = hero.offsetTop + hero.offsetHeight;
-      showStickyCta.value = window.scrollY > heroBottom;
-    }
+    const handleScroll = () => {
+      const hero = document.getElementById("home");
+      if (hero) {
+        const heroBottom = hero.offsetTop + hero.offsetHeight;
+        showStickyCta.value = window.scrollY > heroBottom;
+      }
 
-    if (!scrolledPastHero.value && window.scrollY > 60) {
-      scrolledPastHero.value = true;
-      scrollIndicatorVisible.value = false;
-    }
-  };
+      if (!scrolledPastHero.value && window.scrollY > 60) {
+        scrolledPastHero.value = true;
+        scrollIndicatorVisible.value = false;
+      }
+    };
 
-  window.addEventListener("scroll", handleScroll, { passive: true });
-});
+    window.addEventListener("scroll", handleScroll, { passive: true });
+  });
+}
 </script>
 
 <template>

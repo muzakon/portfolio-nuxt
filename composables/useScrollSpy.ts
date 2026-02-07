@@ -32,16 +32,19 @@ export function useScrollSpy(sectionIds: string[]) {
         activeSection.value = current;
     };
 
-    onMounted(() => {
-        if (typeof window === "undefined") return;
-        window.addEventListener("scroll", updateActiveSection, { passive: true });
-        updateActiveSection();
-    });
+    // Only run on client side
+    if (import.meta.client) {
+        onMounted(() => {
+            if (typeof window === "undefined") return;
+            window.addEventListener("scroll", updateActiveSection, { passive: true });
+            updateActiveSection();
+        });
 
-    onUnmounted(() => {
-        if (typeof window === "undefined") return;
-        window.removeEventListener("scroll", updateActiveSection);
-    });
+        onUnmounted(() => {
+            if (typeof window === "undefined") return;
+            window.removeEventListener("scroll", updateActiveSection);
+        });
+    }
 
     return { activeSection };
 }

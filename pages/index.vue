@@ -3,27 +3,47 @@ import { Typed } from "@duskmoon/vue3-typed-js";
 // Experience data
 const experiences = [
   {
-    title: "Full-stack Developer",
-    period: "2022 — Present",
-    company: "Apps Teknoloji A.S",
+    title: "Independent Engineer",
+    period: "2025 — Present",
+    company: "Self-directed",
     description:
-      "Developed internal tools utilized by a team of over 25 members, serving over 100 million global players. Built Live Ops tools handling ~500,000 requests per day.",
+      "Focused on generative AI systems and modern ML infrastructure, with an emphasis on production-grade LLM applications and scalable model deployments.",
     highlights: [
-      "Built scalable Live Ops tool for game developers with real-time personalized experiences.",
-      "Integrated Meta, Google Ads, Unity Ads, and Applovin APIs.",
-      "Tech: FastAPI, PostgreSQL, Vue.js, BigQuery, GCP services.",
+      "Designed and implemented generative AI solutions leveraging large language models (LLMs) and diffusion-based architectures for content generation and automation use cases.",
+      "Built scalable model serving pipelines with a focus on high-throughput, low-latency inference.",
+      "Implemented GPU-based task queues to efficiently handle compute-intensive workloads, optimizing resource utilization and cost.",
+      "Explored and applied modern deployment strategies for AI systems, including containerized model serving and cloud-native GPU orchestration.",
+      "Worked with diffusion models for image and media generation, gaining hands-on experience with model fine-tuning and inference optimization.",
+      "Followed and evaluated emerging trends in the generative AI ecosystem, translating new research and tools into practical, deployable solutions.",
+      "Researched and experimented with concurrency patterns, async processing, and event-driven architectures for high-load systems"
     ],
   },
   {
-    title: "Full-stack Developer",
+    title: "Full Stack Engineer",
+    period: "2022 — 2025",
+    company: "Apps Teknoloji A.S",
+    description:
+      "Working on scalable systems and cloud-native architectures.",
+    highlights: [
+      "Developed and maintained internal tools utilized by a team of over 25 members, contributing to enhanced operational efficiency within a dynamic environment serving over 100 million global players and more than 500.000 daily active users.",
+      "Created specialized tools for the User Acquisition team to streamline tracking and optimization of UA operations.",
+      "Designed and implemented marketing tools that facilitate creative testing processes, improving campaign effectiveness.",
+      "Developed a scalable Live Ops tool for game developers, delivering real-time personalized experiences to players, handling approximately 500.000 requests per day.",
+      "Integrated various third-party APIs, including Meta, Google Ads, Unity Ads, and Applovin, to enhance functionality and data management across internal systems.",
+      "Utilized a robust tech stack, including FastAPI, PostgreSQL, Vue.js, BigQuery, Compute Engine, Cloud Pub/Sub, Cloud Scheduler, Cloud Storage, and Cloud Run, ensuring high-performance and scalable application development."
+    ],
+  },
+  {
+    title: "Full Stack Engineer",
     period: "2020 — 2022",
     company: "Zeo Agency",
     description:
-      "Fullstack development for content marketing platform serving over 10,000 users.",
+      "Developed end-to-end web applications.",
     highlights: [
-      "Developed web applications using FastAPI, Vue.js, MySQL.",
-      "Improved payment processing and optimized backend services.",
-    ],
+      "Developed and maintained web applications using FastAPI, Vue.js, Mysql, DigitalOcean and Netlify, enhancing user experience and functionality.",
+      "Improved payment processing and optimize backend and frontend services.",
+      "Played a key role in building a content marketing platform that serves over 10,000 users."
+    ]
   },
   {
     title: "Computer Engineering",
@@ -31,7 +51,11 @@ const experiences = [
     company: "University of Karabuk",
     description:
       "Bachelor of Science in Computer Engineering. GPA: 3.10",
-    highlights: [],
+    highlights: [
+      "Acquired a strong foundation in software development, algorithms, and system design.",
+      "Completed coursework in data structures, operating systems, and network architecture, enhancing problem-solving and analytical skills.",
+      "Engaged in hands-on projects that involved building web applications and implementing software solutions, reinforcing full-stack development capabilities."
+    ],
   },
 ];
 
@@ -105,8 +129,7 @@ const projects = [
 
       <div class="flex items-center gap-4">
         <!-- Download Resume Button -->
-        <a
-          href="#"
+        <a href="#"
           class="group inline-flex overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(255,255,255,0.1)] rounded-full pt-[1px] pr-[1px] pb-[1px] pl-[1px] relative items-center justify-center cursor-pointer">
           <span
             class="absolute inset-[-100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_75%,#ffffff_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
@@ -115,10 +138,14 @@ const projects = [
           <span
             class="flex items-center justify-center gap-2 transition-colors duration-300 group-hover:text-white text-sm font-medium text-zinc-400 bg-zinc-900 w-full h-full rounded-full py-3 px-6 relative shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
 
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><!-- Icon from Tabler Icons by Paweł Kuna - https://github.com/tabler/tabler-icons/blob/master/LICENSE --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 18a3.5 3.5 0 0 0 0-7h-1A5 4.5 0 0 0 7 9a4.6 4.4 0 0 0-2.1 8.4M12 13v9m-3-3l3 3l3-3"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              viewBox="0 0 24 24"><!-- Icon from Tabler Icons by Paweł Kuna - https://github.com/tabler/tabler-icons/blob/master/LICENSE -->
+              <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 18a3.5 3.5 0 0 0 0-7h-1A5 4.5 0 0 0 7 9a4.6 4.4 0 0 0-2.1 8.4M12 13v9m-3-3l3 3l3-3" />
+            </svg>
 
             <span class="relative z-10 dynamic-text tracking-tight text-xs ml-1">My Resume</span>
-            
+
           </span>
         </a>
       </div>
@@ -145,31 +172,46 @@ const projects = [
         <div class="absolute left-0 top-2 bottom-0 w-px timeline-line"></div>
 
         <div v-for="(exp, index) in experiences" :key="index" class="relative pl-10 group cursor-default">
-          <div
-            class="timeline-node absolute -left-[5px] top-1.5 h-[10px] w-[10px] bg-zinc-950 border border-zinc-700 rounded-full group-hover:border-green-400 group-hover:bg-green-500 transition-colors duration-300">
+          <!-- Timeline Node -->
+          <div class="absolute -left-[5px] top-1.5">
+            <!-- Active / Current Experience -->
+            <span v-if="index === 0" class="relative flex size-2.5">
+              <span
+                class="absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75 animate-ping"></span>
+              <span class="relative inline-flex size-2.5 rounded-full bg-red-500 border border-transparent"></span>
+            </span>
+
+            <!-- Inactive Experiences -->
+            <span v-else class="block size-2.5 rounded-full bg-zinc-950 border border-zinc-700
+             transition-colors group-hover:bg-green-500 group-hover:border-green-400"></span>
           </div>
 
+          <!-- Content -->
           <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
             <h3 class="text-zinc-100 font-medium text-sm tracking-wide">
               {{ exp.title }}
             </h3>
-            <span class="font-mono text-[10px] text-zinc-600">{{
-              exp.period
-              }}</span>
+            <span class="font-mono text-[10px] text-zinc-600">
+              {{ exp.period }}
+            </span>
           </div>
-          <div class="text-[0.65rem] font-mono text-zinc-500 mb-3">
+
+          <div class="text-[0.65rem] font-mono text-zinc-400 mb-3 uppercase font-semibold">
             {{ exp.company }}
           </div>
+
           <p class="text-xs text-zinc-500 leading-relaxed mb-3 max-w-lg">
             {{ exp.description }}
           </p>
-          <ul v-if="exp.highlights.length"
-            class="list-disc list-outside ml-3 text-[10px] text-zinc-500 space-y-1 marker:text-zinc-700">
+
+          <ul v-if="exp.highlights?.length"
+            class="list-disc list-outside ml-3 text-[0.68rem] text-zinc-500 space-y-2 marker:text-zinc-700">
             <li v-for="highlight in exp.highlights" :key="highlight">
               {{ highlight }}
             </li>
           </ul>
         </div>
+
       </div>
     </section>
 
