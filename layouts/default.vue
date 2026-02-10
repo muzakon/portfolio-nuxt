@@ -66,7 +66,6 @@ if (import.meta.client) {
 </script>
 
 <template>
-  <!-- Skip Link -->
   <a
     href="#home"
     class="skip-link text-[10px] font-mono bg-green-400 text-black px-4 py-2 rounded-full"
@@ -74,7 +73,6 @@ if (import.meta.client) {
     Skip to content
   </a>
 
-  <!-- Background Effects -->
   <div class="fixed inset-0 z-0 pointer-events-none">
     <div
       class="absolute inset-0 bg-grid-pattern opacity-[0.07] bg-grid"
@@ -84,7 +82,6 @@ if (import.meta.client) {
     ></div>
   </div>
 
-  <!-- Navigation -->
   <div class="fixed top-6 left-0 right-0 z-50 px-4">
     <header
       class="glass-nav max-w-4xl mx-auto rounded-full border border-white/5 shadow-2xl shadow-black/50"
@@ -128,12 +125,10 @@ if (import.meta.client) {
     </header>
   </div>
 
-  <!-- Main Content -->
   <main class="relative z-10">
     <slot />
   </main>
 
-  <!-- Mobile Sticky CTA -->
   <div
     class="sticky-cta fixed bottom-0 left-0 right-0 z-50 md:hidden"
     :class="{ visible: showStickyCta }"
@@ -154,9 +149,8 @@ if (import.meta.client) {
     </div>
   </div>
 
-  <!-- Footer -->
   <footer
-    class="max-w-3xl mx-auto px-6 py-12 text-center md:text-left border-t border-zinc-900"
+    class="max-w-3xl mx-auto px-6 pt-12 pb-28 md:pb-12 text-center md:text-left border-t border-zinc-900"
   >
     <div class="flex flex-col md:flex-row justify-between items-center gap-4">
       <p class="text-[10px] text-zinc-600 font-mono">

@@ -62,32 +62,11 @@ const experiences = [
 // Projects data
 const projects = [
   {
-    title: "Live Ops Platform",
+    title: "Tools",
     description:
-      "Scalable real-time personalization platform for game developers, handling 500k+ daily requests.",
-    tags: ["FastAPI", "Vue.js", "BigQuery"],
-    link: "#",
-  },
-  {
-    title: "Content Marketing Platform",
-    description:
-      "Full-stack marketing platform serving 10,000+ users with payment integrations.",
-    tags: ["Vue.js", "MySQL", "FastAPI"],
-    link: "#",
-  },
-  {
-    title: "UA Optimization Tools",
-    description:
-      "Internal tools for User Acquisition team to streamline tracking and campaign optimization.",
-    tags: ["Python", "PostgreSQL", "GCP"],
-    link: "#",
-  },
-  {
-    title: "Creative Testing Suite",
-    description:
-      "Marketing tools facilitating creative testing processes for improved campaign effectiveness.",
-    tags: ["Vue.js", "Node.js", "Cloud Run"],
-    link: "#",
+      "A collection of lightweight web-based tools I use during product development. Built to be fast, simple, and always available in the browser.",
+    tags: ["Nuxt", "Tailwind", "Vuetify"],
+    link: "https://muzak-dev-kit.netlify.app/",
   },
 ];
 </script>
@@ -95,8 +74,8 @@ const projects = [
 <template>
   <div
     class="max-w-3xl mx-auto px-6 pt-40 pb-20 text-zinc-400 antialiased selection:bg-green-900/30 selection:text-green-400">
-    <!-- Hero Section -->
-    <section id="home" class="min-h-[50vh] flex flex-col items-center text-center justify-center mb-32 relative">
+    
+    <section id="home" class="min-h-[85vh] flex flex-col items-center text-center justify-center mb-32 relative pb-24">
       <div class="absolute top-0 left-0 text-zinc-800 text-[10px] font-mono opacity-50">
         +001
       </div>
@@ -128,7 +107,6 @@ const projects = [
       </p>
 
       <div class="flex items-center gap-4">
-        <!-- Download Resume Button -->
         <a href="#"
           class="group inline-flex overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(255,255,255,0.1)] rounded-full pt-[1px] pr-[1px] pb-[1px] pl-[1px] relative items-center justify-center cursor-pointer">
           <span
@@ -139,8 +117,7 @@ const projects = [
             class="flex items-center justify-center gap-2 transition-colors duration-300 group-hover:text-white text-sm font-medium text-zinc-400 bg-zinc-900 w-full h-full rounded-full py-3 px-6 relative shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-              viewBox="0 0 24 24"><!-- Icon from Tabler Icons by Paweł Kuna - https://github.com/tabler/tabler-icons/blob/master/LICENSE -->
-              <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M19 18a3.5 3.5 0 0 0 0-7h-1A5 4.5 0 0 0 7 9a4.6 4.4 0 0 0-2.1 8.4M12 13v9m-3-3l3 3l3-3" />
             </svg>
 
@@ -150,7 +127,6 @@ const projects = [
         </a>
       </div>
 
-      <!-- Scroll Indicator -->
       <div class="absolute bottom-0 left-1/2 -translate-x-1/2 scroll-indicator">
         <svg width="16" height="24" viewBox="0 0 16 24" fill="none" class="text-zinc-600">
           <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5" />
@@ -159,7 +135,6 @@ const projects = [
       </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience" class="mb-32 reveal">
       <div class="flex items-baseline gap-4 mb-12 border-b border-zinc-900 pb-4">
         <h2 class="text-xs font-mono text-green-400 uppercase tracking-widest">
@@ -172,21 +147,17 @@ const projects = [
         <div class="absolute left-0 top-2 bottom-0 w-px timeline-line"></div>
 
         <div v-for="(exp, index) in experiences" :key="index" class="relative pl-10 group cursor-default">
-          <!-- Timeline Node -->
           <div class="absolute -left-[5px] top-1.5">
-            <!-- Active / Current Experience -->
             <span v-if="index === 0" class="relative flex size-2.5">
               <span
                 class="absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75 animate-ping"></span>
               <span class="relative inline-flex size-2.5 rounded-full bg-red-500 border border-transparent"></span>
             </span>
 
-            <!-- Inactive Experiences -->
             <span v-else class="block size-2.5 rounded-full bg-zinc-950 border border-zinc-700
              transition-colors group-hover:bg-green-500 group-hover:border-green-400"></span>
           </div>
 
-          <!-- Content -->
           <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
             <h3 class="text-zinc-100 font-medium text-sm tracking-wide">
               {{ exp.title }}
@@ -215,7 +186,6 @@ const projects = [
       </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="mb-32 reveal">
       <div class="flex items-baseline gap-4 mb-12 border-b border-zinc-900 pb-4">
         <h2 class="text-xs font-mono text-green-400 uppercase tracking-widest">
@@ -227,7 +197,6 @@ const projects = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 reveal-children">
         <a v-for="(project, index) in projects" :key="index" :href="project.link"
           class="project-card group relative block p-6 bg-zinc-900/20 border border-white/5 hover:border-green-500/30">
-          <!-- Corner Decorations -->
           <div
             class="absolute top-0 left-0 w-2 h-2 border-t border-l border-zinc-700 group-hover:border-green-400 transition-colors">
           </div>
@@ -268,7 +237,6 @@ const projects = [
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="border-t border-dashed border-zinc-800 pt-12 reveal" id="contact">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div class="space-y-2">

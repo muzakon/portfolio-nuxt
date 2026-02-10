@@ -13,6 +13,10 @@
   background: #4ade80;
 }
 
+html,body {
+  scroll-behavior: smooth;
+}
+
 /* ===== BASE STYLES ===== */
 body {
   background-color: #050505;
