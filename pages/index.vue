@@ -68,6 +68,12 @@ const projects = [
     tags: ["Nuxt", "Tailwind", "Vuetify"],
     link: "https://muzak-dev-kit.netlify.app/",
   },
+  {
+    title: "Task Queue",
+    description: "A task queue system built with Golang and Redis.",
+    tags: ["Golang", "Redis", "Distributed Systems"],
+    link: "https://github.com/muzakon/go-task-queue"
+  }
 ];
 </script>
 
