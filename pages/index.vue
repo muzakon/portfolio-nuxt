@@ -70,7 +70,7 @@ const projects = [
   },
   {
     title: "Task Queue",
-    description: "A task queue system built with Golang and Redis.",
+    description: "A lightweight distributed task queue built with Go and Redis, featuring concurrent workers, retry logic, dead-letter handling, and Prometheus-based observability.",
     tags: ["Golang", "Redis", "Distributed Systems"],
     link: "https://github.com/muzakon/go-task-queue"
   }
